@@ -1,0 +1,11 @@
+.answer {
+    width: 500px;
+    height: 50px;
+    background: #666666;
+}
+.wrong {
+    background: #f86464;
+}
+.correct {
+    background: #64f890;
+}
