@@ -12,7 +12,8 @@ class Quiz extends Component {
         count: 0,
         win: false,
         correct: 0,
-        fail: 0
+        fail: 0,
+        isblocked: false
     }
   }
 
@@ -37,34 +38,45 @@ class Quiz extends Component {
         question={ q.question }
         answers={ q.answers }
         onNext={ (e, isCorrect) => this.handleClick(e, isCorrect) }
+        blocked={ this.state.isblocked }
       />
     }
   }
 
   handleClick(e, isCorrect) {
-    const sleep = (milliseconds) => {
-      return new Promise(resolve => setTimeout(resolve, milliseconds))
+    if (this.state.isblocked){
+      console.log("blocked");
+    } else {
+      this.setState({
+        isblocked: true
+      })
+      const sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+      }
+      sleep(2000).then(() => {
+        if (isCorrect) {
+          this.setState({
+            correct: this.state.correct+1
+          })
+        } else {
+          this.setState({
+            fail: this.state.fail+1
+          })
+        }
+        if ( this.state.count === this.state.questions.length-1) {
+          this.setState({
+            win: true
+          })
+        } else {
+          this.setState({
+            count: this.state.count + 1
+          })
+        }
+        this.setState({
+          isblocked: false
+        })
+      })
     }
-    sleep(2000).then(() => {
-      if (isCorrect) {
-        this.setState({
-          correct: this.state.correct+1
-        })
-      } else {
-        this.setState({
-          fail: this.state.fail+1
-        })
-      }
-      if ( this.state.count === this.state.questions.length-1) {
-        this.setState({
-          win: true
-        })
-      } else {
-        this.setState({
-          count: this.state.count + 1
-        })
-      }
-    })
   }
 
   render() {
