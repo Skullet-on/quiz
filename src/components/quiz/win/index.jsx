@@ -5,6 +5,8 @@ export default class Win extends Component {
     return (
       <div>
         You Win!
+        Correct answers: { this.props.correct }
+        Fail answers: { this.props.fail }
       </div>
     )
   }

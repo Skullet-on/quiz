@@ -6,8 +6,7 @@ export default class Question extends Component {
     super(props)
     this.state = {
         answers: this.shuffle(this.props.answers),
-        count: 0,
-        win: false
+        count: 0
     }
   }
 
@@ -28,11 +27,11 @@ export default class Question extends Component {
         key={ index } 
         ans={ item.key }
         value={ item.value }
-        next={e => this.next(e)}
+        next={ (e, isCorrect) => this.next(e, isCorrect) }
       />)
   }
-  next(e){
-    this.props.onNext(e)
+  next(e, isCorrect){
+    this.props.onNext(e, isCorrect)
   }
   render() {
     return (

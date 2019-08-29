@@ -3,15 +3,13 @@ import './answers.css'
 
 export default class Answers extends Component {
   handleClick(e){
-    this.changeClass(e)
-    this.props.next(e)
-  }
-  changeClass(e) {
-    if (this.props.value) {
-        e.target.className = "answer correct"
+    const isCorrect = this.props.value
+    if (isCorrect) {
+      e.target.className = "answer correct"
     } else {
-        e.target.className = "answer wrong"
+      e.target.className = "answer wrong"
     }
+    this.props.next(e, isCorrect)
   }
   render() {
     return (
