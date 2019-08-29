@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Answers from './answers'
+import './question.css'
 
 export default class Question extends Component {
   constructor(props){
@@ -35,8 +36,10 @@ export default class Question extends Component {
   }
   render() {
     return (
-      <div className="question">
-        { this.props.question }
+      <div>
+        <div className="question">
+          { this.props.question }
+        </div>
         { this.list() }
       </div>
     )

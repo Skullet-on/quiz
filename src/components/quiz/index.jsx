@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Question from './question'
 import Win from './win'
 import db from './data.json'
+import './quiz.css'
 
 class Quiz extends Component {
   constructor(props){
@@ -68,7 +69,7 @@ class Quiz extends Component {
 
   render() {
     return (
-      <div>
+      <div className="quiz">
         { this.current(this.state.count) }
       </div>
     )
