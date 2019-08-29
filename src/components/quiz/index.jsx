@@ -9,7 +9,9 @@ class Quiz extends Component {
     this.state = {
         questions: this.shuffle(db),
         count: 0,
-        win: false
+        win: false,
+        correct: 0,
+        fail: 0
     }
   }
 
@@ -26,23 +28,32 @@ class Quiz extends Component {
 
   current(question) {
     if (this.state.win) {
-      return <Win />
+      return <Win correct={ this.state.correct } fail={ this.state.fail } />
     } else {
       const q = this.state.questions[question]
       return <Question 
         key={ question } 
         question={ q.question }
         answers={ q.answers }
-        onNext={ e => this.handleClick(e)}
+        onNext={ (e, isCorrect) => this.handleClick(e, isCorrect) }
       />
     }
   }
 
-  handleClick(e) {
+  handleClick(e, isCorrect) {
     const sleep = (milliseconds) => {
       return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
     sleep(2000).then(() => {
+      if (isCorrect) {
+        this.setState({
+          correct: this.state.correct+1
+        })
+      } else {
+        this.setState({
+          fail: this.state.fail+1
+        })
+      }
       if ( this.state.count === this.state.questions.length-1) {
         this.setState({
           win: true
