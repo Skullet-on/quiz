@@ -29,6 +29,7 @@ export default class Question extends Component {
         ans={ item.key }
         value={ item.value }
         next={ (e, isCorrect) => this.next(e, isCorrect) }
+        blocked={ this.props.blocked }
       />)
   }
   next(e, isCorrect){

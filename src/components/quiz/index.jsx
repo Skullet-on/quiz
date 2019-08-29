@@ -38,6 +38,7 @@ class Quiz extends Component {
         question={ q.question }
         answers={ q.answers }
         onNext={ (e, isCorrect) => this.handleClick(e, isCorrect) }
+        blocked={ this.state.isblocked }
       />
     }
   }
