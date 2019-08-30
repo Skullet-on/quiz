@@ -1,7 +1,10 @@
 .statistic {
-    background: #999999;
-    max-width: 800px;
-    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,.1);
+    border: 4px double #ff0000;
+    color: aquamarine;
+    font-size: 30px;
     padding: 10px;
 }
 .reload {
