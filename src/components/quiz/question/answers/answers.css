@@ -1,14 +1,41 @@
 .answer {
-    width: 500px;
     height: 50px;
-    background: #666666;
-    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0,0,0,.1);
+    border: 4px double #ff0000;
+    color: aquamarine;
+    font-size: 30px;
     align-content: center;
     padding: 10px;
 }
-.wrong {
-    background: #f86464;
+.answer_wrong {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    border: 4px double #ff0000;
+    color: aquamarine;
+    font-size: 30px;
+    align-content: center;
+    padding: 10px;
+    background: #791e1e;
 }
-.correct {
-    background: #64f890;
+.answer_correct {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    border: 4px double #ff0000;
+    color: aquamarine;
+    font-size: 30px;
+    align-content: center;
+    padding: 10px;
+    background: #166e30;
+}
+.a_list {
+    display: flex;
+    flex-direction: column;
+}
+.answer:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
 }

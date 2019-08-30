@@ -37,11 +37,13 @@ export default class Question extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="q_list">
         <div className="question">
           { this.props.question }
         </div>
-        { this.list() }
+        <div className="a_list">
+          { this.list() }
+        </div>
       </div>
     )
   }

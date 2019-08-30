@@ -11,28 +11,24 @@ export default class Answers extends Component {
   handleClick(e){
     const isCorrect = this.props.value
     if (isCorrect) {
-      e.target.className = "answer correct"
+      e.target.className = "answer_correct"
     } else {
-      e.target.className = "answer wrong"
+      e.target.className = "answer_wrong"
     }
     this.props.next(e, isCorrect)
   }
   show() {
     if (this.props.blocked) {
-      return <div id="answer" className="answer">
+      return <div className="answer">
         { this.props.ans }
       </div>
     } else {
-      return <div id="answer" className="answer" onClick={ e => this.handleClick(e) }>
+      return <div className="answer" onClick={ e => this.handleClick(e) }>
         { this.props.ans }
       </div>
     }
   }
   render() {
-    return ( 
-      <div>
-        { this.show() }
-      </div>
-    )
+    return this.show()
   }
 }   

@@ -1,9 +1,12 @@
 .question {
     display: flex;
-    background: #777777;
-    height: 50px;
-    max-width: 500px;
-    font-size: 24px;
-    align-items: center;
+    background: rgba(0,0,0,.6);
+    border: 4px double #ff0000;
+    color: aquamarine;
+    font-size: 40px;
     padding: 10px;
+}
+.q_list {
+    display: flex;
+    flex-direction: column;
 }
