@@ -8,5 +8,13 @@
     padding: 10px;
 }
 .reload {
+    background: rgba(0,0,0,.1);
+    border: 2px double #ff0000;
+    color: aquamarine;
+    font-size: 30px;
     padding: 10px;
+}
+.reload:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
 }
