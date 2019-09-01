@@ -3,7 +3,7 @@ import './win.css'
 
 export default class Win extends Component {
   handleClick(e){
-    window.location.reload();
+    this.props.reload(e)
   }
   render() {
     return (

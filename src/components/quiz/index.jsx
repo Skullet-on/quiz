@@ -27,10 +27,19 @@ class Quiz extends Component {
     }
     return arr;
   }
-
+  reload() {
+    this.setState({
+      questions: this.shuffle(db),
+        count: 0,
+        win: false,
+        correct: 0,
+        fail: 0,
+        isblocked: false
+    })
+  }
   current(question) {
     if (this.state.win) {
-      return <Win correct={ this.state.correct } fail={ this.state.fail } />
+      return <Win correct={ this.state.correct } fail={ this.state.fail } reload={ e => this.reload(e) } />
     } else {
       const q = this.state.questions[question]
       return <Question 
